@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t omichalo/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run omichalo/docker-react npm run test -- --coverage
